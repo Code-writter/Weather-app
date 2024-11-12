@@ -1,18 +1,20 @@
 import { API_CONFIG } from "./config"
-import { Cordinates, ForecastData, GeocodingResponse, WeatherData } from "./types"
+import { Coordinates, ForecastData, GeocodingResponse, WeatherData } from "./types"
 
 
 class WeatherAPI {
 
     private createURL(endpoint : string, params : Record<string, string | number >){
+        import.meta.env.VITE_OPENWEATHER_API_KEY
         const searchParams = new URLSearchParams({
-            appid:API_CONFIG.API_KEY,
+            // todo: Make it in env  
+            appid: "567f8d82d8b7f8568620ede2a004cf99",
             ...params
         })
         return `${endpoint}?${searchParams.toString()}`
     }
 
-    private async fetchDATA <T> (url:string):Promise<T> {
+    private async fetchData <T> (url:string):Promise<T> {
         const response = await fetch(url)
 
         if(!response.ok){
@@ -22,34 +24,34 @@ class WeatherAPI {
         return response.json()
     }
 
-    async getCurrentWeather({lat, lon}:Cordinates) :Promise<WeatherData> {
+    async getCurrentWeather({lat, lon}:Coordinates) :Promise<WeatherData> {
         const url = this.createURL(`${API_CONFIG.BASE_URL}/weather`, {
             lat:lat.toString(),
             lon:lon.toString(),
             units:API_CONFIG.DEFAULT_PARAMS.units
         })
 
-        return this.fetchDATA<WeatherData>(url)
+        return this.fetchData<WeatherData>(url)
     }
 
-    async getForecast({lat, lon}:Cordinates) :Promise<ForecastData> {
+    async getForecast({lat, lon}:Coordinates) :Promise<ForecastData> {
         const url = this.createURL(`${API_CONFIG.BASE_URL}/forecast`, {
             lat:lat.toString(),
             lon:lon.toString(),
             units:API_CONFIG.DEFAULT_PARAMS.units
         })
 
-        return this.fetchDATA<ForecastData>(url)
+        return this.fetchData<ForecastData>(url)
     }
 
-    async reverseGeocode({lat, lon}:Cordinates) :Promise<GeocodingResponse[]> {
+    async reverseGeocode({lat, lon}:Coordinates) :Promise<GeocodingResponse[]> {
         const url = this.createURL(`${API_CONFIG.GEO}/reverse`, {
-            lat:lat.toString(),
-            lon:lon.toString(),
+            lat: lat.toString(),
+            lon: lon.toString(),
             limit:1
         })
 
-        return this.fetchDATA<GeocodingResponse[] >(url)
+        return this.fetchData<GeocodingResponse[]>(url)
     }
 }
 

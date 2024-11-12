@@ -9,9 +9,19 @@ import {
 } from '@tanstack/react-query'
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+const queryClient = new QueryClient({
+    defaultOptions : {
+        queries : {
+            staleTime : 5* 60 * 1000, // 5min
+            gcTime : 10 * 60 * 1000, // 10min
+            retry : false,
+            refetchOnWindowFocus : false 
+        }
+    }
+})
 
 export default function App(){
-    const queryClient = new QueryClient()
+
     return(
         <QueryClientProvider client={queryClient}>
             <BrowserRouter>

@@ -1,4 +1,4 @@
-export interface Cordinates{
+export interface Coordinates{
     lat:number;
     lon : number;
 }
@@ -11,7 +11,7 @@ export interface WeatherCondition{
 }
 
 export interface WeatherData{
-    coord:Cordinates;
+    coord:Coordinates;
     weather: WeatherCondition[];
     main:{
         temp:number
