@@ -6,6 +6,8 @@ import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import {useWeatherQuery, useForecastQuery, useReverseGeocodeQuery} from '../hooks/useWeather'
 import CurrentWeather from "../components/current-weather";
 import HourlyTemp from "../components/hourly-temp";
+import WeatherDetails from "../components/weather-details";
+import WeatherForecast from "../components/weather-forecast";
 
 export default function weatherDashboard(){
 
@@ -106,14 +108,14 @@ export default function weatherDashboard(){
               <div className="grid gap-6" >
                   <div className=" flex flex-col lg:flex-row gap-4" >
                     <CurrentWeather data={weatherQuery.data} locationName={locationName}  />
-
-                     {/* Hourly temp */}
                      <HourlyTemp data={forecastQuery.data} />
                   </div>
 
-                  <div>
+                  <div className=" grid gap-6 md:grid-cols-2 items-start" >
                       {/* details about  */}
+                      <WeatherDetails data={weatherQuery.data} />
                       {/* forecast */}
+                      <WeatherForecast data={forecastQuery.data} />
                   </div>
               </div>
             {/* current and hourly weather */}
