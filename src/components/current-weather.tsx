@@ -11,7 +11,7 @@ interface CurrentWeatherProps {
 export default function CurrentWeather({data, locationName} : CurrentWeatherProps){
     const {
         weather : [currentWeather],
-        main: {temp, feels_like, temp_min, temp_max, humidity, pressure},
+        main: {temp, feels_like, temp_min, temp_max, humidity},
         wind : {speed},
     } = data 
 

@@ -1,9 +1,8 @@
 import { useParams, useSearchParams } from "react-router-dom"
 import { useForecastQuery, useWeatherQuery } from "../hooks/useWeather";
 import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
-import { AlertTriangle, RefreshCcw } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import WeatherSkeleton from "../components/loading-skeleton";
-import { Button } from "../components/ui/button";
 import CurrentWeather from "../components/current-weather";
 import HourlyTemp from "../components/hourly-temp";
 import WeatherDetails from "../components/weather-details";
