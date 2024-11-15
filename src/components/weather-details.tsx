@@ -31,7 +31,7 @@ export default function WeatherDetails({data} : WeatherDetailsProps){
         },
         {
             title : "Sunset",
-            value : formatTime(sys.sunrise),
+            value : formatTime(sys.sunset),
             icon : Sunset,
             color : "text-blue-500",
         },
