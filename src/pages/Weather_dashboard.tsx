@@ -8,6 +8,7 @@ import CurrentWeather from "../components/current-weather";
 import HourlyTemp from "../components/hourly-temp";
 import WeatherDetails from "../components/weather-details";
 import WeatherForecast from "../components/weather-forecast";
+import FavoriteCities from "../components/favorites-cities";
 
 export default function weatherDashboard(){
 
@@ -93,6 +94,7 @@ export default function weatherDashboard(){
     return (
         <div className="space-y-4" >
             {/* fav cities */}
+            <FavoriteCities />
             <div className="flex items-center justify-between" >
                 <h1 className="text-xl font-bold tracking-tight" >My Location</h1>
                 {/* refresh icon */}
@@ -118,7 +120,6 @@ export default function weatherDashboard(){
                       <WeatherForecast data={forecastQuery.data} />
                   </div>
               </div>
-            {/* current and hourly weather */}
         </div>
     )
 }

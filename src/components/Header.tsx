@@ -1,6 +1,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "../context/theme-provider";
 import { Link } from "react-router-dom";
+import CitySearch from "./city-search";
 
 export default function Header(){
 
@@ -13,8 +14,9 @@ export default function Header(){
                     {/* Todo : Logo */}
                     <img src={ isDark ? "/logo.png" : "/logo2.png" } alt="Logo" className="h-14" />
                 </Link>
-                <div>
+                <div className=" flex gap-4" >
                     {/* Search */}
+                    <CitySearch />
                     {/* Theme togle */}
                     <div onClick={() => {
                         setTheme(isDark? "light" : "dark")
