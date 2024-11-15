@@ -10,6 +10,8 @@ import {
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Toaster } from "sonner"
+
+
 const queryClient = new QueryClient({
     defaultOptions : {
         queries : {
