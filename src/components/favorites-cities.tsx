@@ -3,7 +3,7 @@ import { useFavorite } from "../hooks/use-favorite"
 import { ScrollArea } from "./ui/scroll-area"
 import { useWeatherQuery } from "../hooks/useWeather"
 import { Button } from "./ui/button"
-import { icons, Loader2, X } from "lucide-react"
+import { Loader2, X } from "lucide-react"
 import { toast } from "sonner"
 
 interface FavoriteCityTabletProps {
